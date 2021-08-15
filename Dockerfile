@@ -51,21 +51,20 @@ RUN /usr/local/bin/docker-php-ext-install pdo_pgsql
 RUN /usr/local/bin/docker-php-ext-install pgsql
 RUN /usr/local/bin/docker-php-ext-install soap
 RUN /usr/local/bin/docker-php-ext-install xml
-RUN /usr/local/bin/docker-php-ext-install xmlrpc
 RUN /usr/local/bin/docker-php-ext-install zip
 RUN /usr/local/bin/docker-php-ext-install bcmath
 RUN /usr/local/bin/docker-php-ext-install ldap
 RUN /usr/local/bin/docker-php-ext-install curl
 RUN /usr/local/bin/docker-php-ext-install sockets
 RUN /usr/local/bin/docker-php-ext-install ctype
-RUN /usr/local/bin/docker-php-ext-install fileinfo
-RUN /usr/local/bin/docker-php-ext-install json
-RUN /usr/local/bin/docker-php-ext-install tokenizer
+
+RUN pecl install xmlrpc-beta
+RUN docker-php-ext-enable xmlrpc
 
 RUN pecl install redis
 RUN docker-php-ext-enable redis
 
-RUN pecl install amqp
+RUN pecl install amqp-beta
 RUN docker-php-ext-enable amqp
 
 RUN pecl install xdebug
