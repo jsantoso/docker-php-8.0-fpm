@@ -34,7 +34,8 @@ RUN apt-get install -y \
         unzip \
         libonig-dev \
         iproute2 \
-        iputils-ping
+        iputils-ping \
+        imagemagick
 
 RUN  curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
@@ -57,6 +58,8 @@ RUN /usr/local/bin/docker-php-ext-install ldap
 RUN /usr/local/bin/docker-php-ext-install curl
 RUN /usr/local/bin/docker-php-ext-install sockets
 RUN /usr/local/bin/docker-php-ext-install ctype
+
+ADD etc/ImageMagick/policy.xml /etc/ImageMagick-6/policy.xml
 
 RUN pecl install xmlrpc-beta
 RUN docker-php-ext-enable xmlrpc
