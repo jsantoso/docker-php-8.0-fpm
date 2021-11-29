@@ -37,7 +37,9 @@ RUN apt-get install -y \
         iputils-ping \
         imagemagick \
         lftp \
-        poppler-utils
+        poppler-utils \
+        zip \
+        pdftk
 
 RUN  curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
